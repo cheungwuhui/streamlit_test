@@ -61,8 +61,8 @@ if find_res:
     res = requests.post(url=url, data=dataList_json)
     res = requests.post(url=url, data=dataList_json)
     output = res.text
-    output = json.loads(output)
-    st.write(output)
+    output1 = json.loads(output)
+    st.write(output1)
 
 
 
