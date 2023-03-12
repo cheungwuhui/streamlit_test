@@ -29,11 +29,11 @@ input_df = None # 默认值
 # * 如果上传成功，则按照之前的数据处理的流程走一遍；否则，直接调用之前的模型文件
 if uploader_file is None:
     # 加载模型
-    with open("02-Projects/p-03-penguin_app/rfc_model.pickle", "rb") as file:
+    with open("st_courses/02-Projects/p-03-penguin_app/rfc_model.pickle", "rb") as file:
         model = pickle.load(file)
         st.write("### rfc model : \n", model)
     # 加载标签名称
-    with open("02-Projects/p-03-penguin_app/label_names.pickle", "rb") as file:
+    with open("st_courses/02-Projects/p-03-penguin_app/label_names.pickle", "rb") as file:
         label_names = pickle.load(file)
         st.write("### label names : \n", label_names)
 else:
@@ -65,7 +65,7 @@ else:
     plt.ylabel('Feature')
     plt.tight_layout()
     fig.savefig('model_feature_importance.png')
-    st.image("02-Projects/p-03-penguin_app/model_feature_importance.png")
+    st.image("st_courses/02-Projects/p-03-penguin_app/model_feature_importance.png")
 
 # 模型预测
 # 用户输入特征数据
