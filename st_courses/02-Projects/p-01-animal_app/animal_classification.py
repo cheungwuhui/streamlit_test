@@ -6,7 +6,7 @@ from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 
 # 加载模型
 with st.spinner("加载模型中..."):
-    model = tf.keras.models.load_model("02-Projects/p-01-animal_app/model/animal.hdf5")
+    model = tf.keras.models.load_model("st_courses/02-Projects/p-01-animal_app/model/animal.hdf5")
 
 # 用户上传图片
 upload_file = st.file_uploader("请选择一张图片上传", type=['jpg','png'])
