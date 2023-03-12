@@ -2,6 +2,8 @@ import streamlit as st
 import cv2
 import numpy as np
 import tensorflow as tf
+import requests
+import json
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 
 # 加载模型
@@ -47,4 +49,20 @@ if upload_file is not None:
         #print("prediction : ", prediction)
         max_pred_position = prediction.argmax() # 最大值的索引
         st.title("图片中的动物类别是: {}".format(animal_labels[max_pred_position]))
+
+url="http://180.184.50.70:21881/gpt2"
+seed = st.text_input("seed", key="seed")
+max_length = st.text_input("最大长度", key="max_length")
+word_input = st.text_input("输入内容", key="input")
+dataList=dict([('seed',seed),('max_length',max_length),("input",word_input)])
+dataList_json=json.dumps(dataList)
+find_res = st.button("形成一段话")
+if find_res:
+    res = requests.post(url=url, data=dataList_json)
+    res = requests.post(url=url, data=dataList_json)
+    output = res.text
+    output = json.loads(output)
+    st.write(output)
+
+
 
